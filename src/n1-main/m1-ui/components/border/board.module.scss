@@ -1,0 +1,39 @@
+.board {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: auto;
+  margin: 20px;
+  height: 100vh;
+  border: 1px solid black;
+  background: #f09c2d;
+
+  .daysBox {
+    width: 100%;
+    height: inherit;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    .dayBox {
+      width: 20%;
+      height: 20%;
+      border: solid 1px black;
+      margin: 5px;
+      .minMax {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .minTemp, .maxTemp {
+          margin: 10px;
+        }
+        .celsius {
+          height: 15px;
+        }
+      }
+    }
+  }
+}

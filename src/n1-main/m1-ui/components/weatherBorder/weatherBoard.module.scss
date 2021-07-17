@@ -1,0 +1,38 @@
+.weatherBoard {
+  background-size: cover;
+  width: auto;
+  margin: 20px;
+  height: 100vh;
+  .searchContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    align-items: center
+  }
+  .weatherData {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    .cityBox {
+      margin-top: 10px;
+    }
+    .img {
+      width: 200px;
+    }
+    .minMax {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      .minTemp, .maxTemp {
+        margin: 10px;
+      }
+      .celsius {
+        height: 15px;
+      }
+    }
+  }
+}
