@@ -9,10 +9,10 @@ import Preloader from "../preloader/Preloader";
 import loading from './../../common/loading.gif'
 
 export type ListType = {
-    main:  {
-    temp_min: number
-    temp_max: number
-}
+    main: {
+        temp_min: number
+        temp_max: number
+    }
 }
 
 export  type typeProps = {
@@ -23,25 +23,27 @@ const WeatherBoard = React.memo((props: typeProps) => {
     const weather = useSelector<AppRootStateType, any>(state => state.weather)
     let dispatch = useDispatch()
 
+    console.log('WeatherBoard')
+
     useEffect(() => {
-        dispatch(setWeatherTC('Kyiv'))
+        dispatch(setWeatherTC('Warsaw'))
     }, [dispatch])
 
-const image = props.image
+    const image = props.image
 
     const reciveDate = (str: string) => {
         return str.substr(0, 10)
     }
 
     const findMin = () => {
-        let arr = weather.weather.list.slice(0,8)
-        let arrayMinTempForOneDay = arr.map ((el: ListType) => Math.floor(el.main.temp_min))
+        let arr = weather.weather.list.slice(0, 8)
+        let arrayMinTempForOneDay = arr.map((el: ListType) => Math.floor(el.main.temp_min))
         return Math.min(...arrayMinTempForOneDay)
     }
 
     const findMax = () => {
-        let arr = weather.weather.list.slice(0,8)
-        let arrayMinTempForOneDay = arr.map ((el: ListType) => Math.floor(el.main.temp_min))
+        let arr = weather.weather.list.slice(0, 8)
+        let arrayMinTempForOneDay = arr.map((el: ListType) => Math.floor(el.main.temp_min))
         return Math.max(...arrayMinTempForOneDay)
     }
 

@@ -42,7 +42,7 @@ const Board = React.memo((props: typeProps) => {
                 ? <div>{}</div>
                 : <div className={s.daysBox}>
                     {daysIndex.map(n => {
-                            return <div className={s.dayBox}>
+                            return <div key={n} className={s.dayBox}>
                                 <div>{weather.weather.list[n].dt_txt.substr(0, 10)}</div>
                                 <img className={s.img} alt={''} src={image(n)}/>
                                 <div className={s.minMax}>
@@ -66,7 +66,7 @@ const Board = React.memo((props: typeProps) => {
 
             <div className={s.listOfCities}>
                 {listOfCities.map(c => {
-                    return <div onClick={() => findCity(c)} style={{cursor: 'pointer'}}>{c}</div>
+                    return <div key={c} onClick={() => findCity(c)} style={{cursor: 'pointer'}}>{c}</div>
                 })}
             </div>
         </div>

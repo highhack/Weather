@@ -1,27 +1,25 @@
+@import './src/n1-main/m1-ui/common/mixins';
+
 .weatherBoard {
   background-size: cover;
-  width: auto;
+  width: 50vw;
   margin: 20px;
   height: 100vh;
   border: solid 1px;
+  @media screen and (max-width: 1200px) {
+    width: 90vw;
+  }
   .searchContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    @include flex(row, center, flex-start, no wrap );
     padding: 20px;
-    align-items: flex-start;
     .button {
       margin: 8px;
       font-family: 'Merienda', cursive;
     }
   }
   .weatherData {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    @include flex(row, space-around, flex-start, wrap );
     margin-top: 20px;
-    flex-wrap: wrap;
     .cityBox {
       margin-top: 10px;
     }
@@ -29,9 +27,7 @@
       width: 200px;
     }
     .minMax {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+      @include flex(row, space-around, center ,no wrap );
       .minTemp, .maxTemp {
         margin: 10px;
       }

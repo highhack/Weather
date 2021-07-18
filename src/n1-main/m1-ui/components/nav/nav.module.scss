@@ -1,8 +1,7 @@
+@import './src/n1-main/m1-ui/common/mixins';
+
 .nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include flex(row, center, center ,no wrap );
   width: auto;
   margin: 10px 20px 0 20px;
   height: 60px;
