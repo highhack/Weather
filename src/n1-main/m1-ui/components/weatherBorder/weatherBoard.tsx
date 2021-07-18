@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {setWeatherTC} from "../../../m2-bll/weatherReducer";
+import { setWeatherTC} from "../../../m2-bll/weatherReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../m2-bll/store";
 import s from './weatherBoard.module.scss'
@@ -30,7 +30,7 @@ const WeatherBoard = React.memo((props: typeProps) => {
 
     const image = props.image
 
-    const reciveDate = (str: string) => {
+    const receiveDate = (str: string) => {
         return str.substr(0, 10)
     }
 
@@ -57,7 +57,7 @@ const WeatherBoard = React.memo((props: typeProps) => {
                     <div>
                         <div className={s.cityBox}>
                             <h1>{weather.weather.city.name}</h1>
-                            <div>{reciveDate(weather.weather.list[0].dt_txt)}</div>
+                            <div>{receiveDate(weather.weather.list[0].dt_txt)}</div>
                         </div>
                         <div className={s.weatherDescription}>
                             <img className={s.img} alt={''} src={image(0)}/>

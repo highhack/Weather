@@ -19,7 +19,7 @@ const Routes = React.memo(() => {
     const image = (part: number) => {
         if (weather.weather.list[part].weather[0].main === 'Clouds')
             return clouds
-        else if (weather.weather.list[part].weather[0].description === 'clear sky')
+        else if (weather.weather.list[part].weather[0].main === 'Clear')
             return sun
         else if (weather.weather.list[part].weather[0].main === 'Rain')
             return rain
