@@ -11,9 +11,7 @@ const Preloader = React.memo( (props: {loading: any}) => {
     let loadingStatus = useSelector<AppRootStateType, LoadingStatusType>(state => state.weather.loadingStatus);
     return (
         loadingStatus === "loading"
-            ? <div>
-                <div className={s.window}><img alt={''} src={props.loading}/></div>
-            </div>
+            ? <div ><img className={s.img} alt={''} src={props.loading}/></div>
             : <div>{}</div>
     );
 });

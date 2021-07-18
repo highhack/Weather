@@ -23,7 +23,6 @@ const WeatherBoard = React.memo((props: typeProps) => {
     const weather = useSelector<AppRootStateType, any>(state => state.weather)
     let dispatch = useDispatch()
 
-    console.log('WeatherBoard')
 
     useEffect(() => {
         dispatch(setWeatherTC('Warsaw'))

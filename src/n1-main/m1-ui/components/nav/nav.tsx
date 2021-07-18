@@ -8,14 +8,13 @@ const Nav = React.memo(() => {
             <Switch>
                 <nav className={s.nav}>
                     <div className={s.item}>
-                        <NavLink to='/' activeClassName={s.active}>Weather</NavLink>
+                        <NavLink to='/Weather' activeClassName={s.active}>Weather</NavLink>
                     </div>
                     <div className={s.item}>
                         <NavLink to='/news' activeClassName={s.active}>News</NavLink>
                     </div>
                 </nav>
             </Switch>
-
     )
 });
 
