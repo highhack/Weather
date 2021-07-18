@@ -1,0 +1,14 @@
+.news {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: initial;
+  width: auto;
+  margin: 20px;
+  height: 100vh;
+  border: 1px solid black;
+  background: #f09c2d;
+  .img {
+    border: solid 3px;
+  }
+}

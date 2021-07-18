@@ -1,15 +1,15 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from './../weatherBoard.module.scss'
 import {setSearchErrorAC, setTextHelperAC, setWeatherTC} from "../../../../m2-bll/weatherReducer";
-import {Button, FormControl, FormHelperText, Input, InputLabel, TextField} from "@material-ui/core";
+import {Button,FormHelperText, TextField} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../m2-bll/store";
 
 
-const SearchBox = () => {
+const SearchBox = React.memo(() => {
 
-    const searchError = useSelector<AppRootStateType, any>(state => state.weather.searchError)
-    const textHelper = useSelector<AppRootStateType, any>(state => state.weather.textHelper)
+    const searchError = useSelector<AppRootStateType, boolean>(state => state.weather.searchError)
+    const textHelper = useSelector<AppRootStateType, string>(state => state.weather.textHelper)
     let dispatch = useDispatch()
     const [citySearch, setCitySearch] = useState('')
 
@@ -24,7 +24,7 @@ const SearchBox = () => {
         setCitySearch('')
     }
 
-    const onKeyDown = (event: any) => {
+    const onKeyDown = (event: React.KeyboardEvent) => {
         if (event.keyCode === 13) {
             dispatch(setWeatherTC(citySearch))
             setCitySearch('')
@@ -34,16 +34,6 @@ const SearchBox = () => {
 
     return (
         <div className={s.searchContainer}>
-            {/*<FormControl>*/}
-            {/*    <InputLabel htmlFor="component-simple">City</InputLabel>*/}
-            {/*    <Input*/}
-            {/*        value={citySearch}*/}
-            {/*        error={searchError}*/}
-            {/*        onKeyDown={onKeyDown}*/}
-            {/*        onChange={onHandler}*/}
-            {/*    />*/}
-            {/*    <FormHelperText style={{color:'red'}}>{textHelper}</FormHelperText>*/}
-            {/*</FormControl>*/}
             <form noValidate autoComplete="off">
                 <TextField
                     id="outlined-secondary"
@@ -55,16 +45,19 @@ const SearchBox = () => {
                     onKeyDown={onKeyDown}
                     onChange={onHandler}
                 />
-                <FormHelperText style={{color:'red'}}>{textHelper}</FormHelperText>
+                <FormHelperText style={{color:'red', fontFamily: `'Merienda', cursive`}}>{textHelper}</FormHelperText>
             </form>
-            <div>
-                <Button onClick={findWeather} size={'large'} variant="contained" >
+                <Button
+                    style={{fontFamily: `'Merienda', cursive`}}
+                    onClick={findWeather}
+                    className={s.button}
+                    size={'large'}
+                    variant="contained" >
                     Search
                 </Button>
-            </div>
         </div>
 
     )
-};
+});
 
 export default SearchBox;

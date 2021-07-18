@@ -3,12 +3,17 @@
   width: auto;
   margin: 20px;
   height: 100vh;
+  border: solid 1px;
   .searchContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 20px;
-    align-items: center
+    align-items: flex-start;
+    .button {
+      margin: 8px;
+      font-family: 'Merienda', cursive;
+    }
   }
   .weatherData {
     display: flex;

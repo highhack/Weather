@@ -1,7 +1,14 @@
 .nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: auto;
   margin: 10px 20px 0 20px;
   height: 60px;
   border: 1px solid black;
   background: #f09c2d;
+  .active {
+    margin: 10px;
+  }
 }
