@@ -3,7 +3,7 @@ import s from './board.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../m2-bll/store";
 import {listOfCities} from "../../common/listOfcities";
-import {setWeatherTC} from "../../../m2-bll/weatherReducer";
+import {setSearchErrorAC, setTextHelperAC, setWeatherTC} from "../../../m2-bll/weatherReducer";
 import {ListType} from "../weatherBorder/weatherBoard";
 import Preloader from "../preloader/Preloader";
 import loading from './../../common/loading1.gif'
@@ -14,11 +14,14 @@ export  type typeProps = {
 
 const Board = React.memo((props: typeProps) => {
     const weather = useSelector<AppRootStateType, any>(state => state.weather)
+    const searchError = useSelector<AppRootStateType, boolean>(state => state.weather.searchError)
     let dispatch = useDispatch()
 
     let daysIndex = [8, 16, 24, 32]
     const findCity = (city: string) => {
         dispatch(setWeatherTC(city))
+        dispatch(setTextHelperAC(''))
+        searchError && dispatch(setSearchErrorAC(false))
     }
 
     const findMin = (t: number) => {

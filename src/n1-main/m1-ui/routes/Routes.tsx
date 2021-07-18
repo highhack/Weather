@@ -15,16 +15,13 @@ const Routes = React.memo(() => {
 
     const weather = useSelector<AppRootStateType, any>(state => state.weather)
 
+
     const image = (part: number) => {
-        if (weather.weather.list[part].weather[0].description === 'broken clouds'
-            || weather.weather.list[part].weather[0].description === 'scattered clouds'
-            || weather.weather.list[part].weather[0].description === 'few clouds')
+        if (weather.weather.list[part].weather[0].main === 'Clouds')
             return clouds
         else if (weather.weather.list[part].weather[0].description === 'clear sky')
             return sun
-        else if (weather.weather.list[part].weather[0].description === 'light rain'
-        || weather.weather.list[part].weather[0].description === 'moderate rain'
-        || weather.weather.list[part].weather[0].description === 'heavy intensity rain' )
+        else if (weather.weather.list[part].weather[0].main === 'Rain')
             return rain
         else if (weather.weather.list[part].weather[0].description === 'overcast clouds')
             return darkClouds
@@ -39,7 +36,7 @@ const Routes = React.memo(() => {
                     <Board image={image}/>
                 </div> }/>
                 <Route exact path={'/news'} render={() =>
-                    <div className={s.weather}>
+                    <div className={s.weatherNews}>
                         <WeatherBoard image={image}/>
                         <News/>
                     </div> }/>

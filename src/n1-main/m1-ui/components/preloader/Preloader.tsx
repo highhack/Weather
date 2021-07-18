@@ -1,7 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../m2-bll/store";
-// import loading from './../../common/loading.gif'
 import s from'./Preloader.module.scss'
 import {LoadingStatusType} from "../../../m2-bll/weatherReducer";
 
