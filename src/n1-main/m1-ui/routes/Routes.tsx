@@ -30,8 +30,7 @@ const Routes = React.memo(() => {
     return (
         <div>
             <Switch>
-                <Route exact path={'/Weather'} render={() =>
-                <div className={s.weather}>
+                <Route exact path={'/weather'} render={() => <div className={s.weather}>
                     <WeatherBoard image={image}/>
                     <Board image={image}/>
                 </div> }/>

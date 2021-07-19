@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useCallback, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent,  useState} from 'react';
 import s from './../weatherBoard.module.scss'
 import {setSearchErrorAC, setTextHelperAC, setWeatherTC} from "../../../../m2-bll/weatherReducer";
 import {Button,FormHelperText, TextField} from "@material-ui/core";
@@ -14,18 +14,19 @@ const SearchBox = React.memo(() => {
     const [citySearch, setCitySearch] = useState('')
 
     const onHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        debugger
         setCitySearch(event.currentTarget.value)
         dispatch(setSearchErrorAC(false))
         dispatch(setTextHelperAC(''))
     }
 
-    const findWeather = useCallback(() => {
+    const findWeather = () => {
         dispatch(setWeatherTC(citySearch))
         setCitySearch('')
-    },[dispatch, citySearch])
+    }
 
-    const onKeyDown = (event: React.KeyboardEvent) => {
-        if (event.keyCode === 13) {
+    const onKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Enter') {
             dispatch(setWeatherTC(citySearch))
             setCitySearch('')
         }

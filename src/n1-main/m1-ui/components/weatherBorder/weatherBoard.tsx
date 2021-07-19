@@ -23,10 +23,9 @@ const WeatherBoard = React.memo((props: typeProps) => {
     const weather = useSelector<AppRootStateType, any>(state => state.weather)
     let dispatch = useDispatch()
 
-
     useEffect(() => {
-        dispatch(setWeatherTC('Warsaw'))
-    }, [dispatch])
+            dispatch(setWeatherTC('Kiev'))
+    }, [])
 
     const image = props.image
 
