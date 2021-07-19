@@ -8,7 +8,7 @@ const Nav = React.memo(() => {
             <Switch>
                 <nav className={s.nav}>
                     <div className={s.item}>
-                        <NavLink to='/Weather' activeClassName={s.active}>Weather</NavLink>
+                        <NavLink to='/weather' activeClassName={s.active}>Weather</NavLink>
                     </div>
                     <div className={s.item}>
                         <NavLink to='/news' activeClassName={s.active}>News</NavLink>

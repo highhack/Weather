@@ -26,7 +26,7 @@ const SearchBox = React.memo(() => {
     }
 
     const onKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Enter') {
+        if (e.keyCode === 13) {
             dispatch(setWeatherTC(citySearch))
             setCitySearch('')
         }
@@ -35,7 +35,7 @@ const SearchBox = React.memo(() => {
 
     return (
         <div className={s.searchContainer}>
-            <form noValidate autoComplete="off">
+            <div className={s.input}>
                 <TextField
                     id="outlined-secondary"
                     label="City"
@@ -47,7 +47,7 @@ const SearchBox = React.memo(() => {
                     onChange={onHandler}
                 />
                 <FormHelperText style={{color:'red', fontFamily: `'Merienda', cursive`}}>{textHelper}</FormHelperText>
-            </form>
+            </div>
                 <Button
                     style={{fontFamily: `'Merienda', cursive`}}
                     onClick={findWeather}

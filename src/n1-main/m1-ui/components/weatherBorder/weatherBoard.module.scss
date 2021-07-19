@@ -13,6 +13,10 @@
   .searchContainer {
     @include flex(row, center, flex-start, no wrap );
     padding: 20px;
+    .input {
+      display: flex;
+      flex-direction: column;
+    }
     .button {
       margin: 8px;
       font-family: 'Merienda', cursive;

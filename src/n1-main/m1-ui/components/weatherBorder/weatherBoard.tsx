@@ -25,7 +25,7 @@ const WeatherBoard = React.memo((props: typeProps) => {
 
     useEffect(() => {
             dispatch(setWeatherTC('Kiev'))
-    }, [])
+    }, [dispatch])
 
     const image = props.image
 
