@@ -8,7 +8,7 @@
   border: solid 1px;
   @media screen and (max-width: 1200px) {
     width: 90vw;
-    height: 120vh;
+    height: auto;
   }
   .searchContainer {
     @include flex(row, center, flex-start, no wrap );

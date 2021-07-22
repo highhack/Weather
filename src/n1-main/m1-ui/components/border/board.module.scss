@@ -1,8 +1,7 @@
 @import './src/n1-main/m1-ui/common/mixins';
 
 .board {
-  @include flex(column, center, initial, no wrap);
-  width: 50vw;
+  @include flex(column, center, initial, wrap);
   margin: 20px;
   height: 100vh;
   border: 1px solid black;
@@ -13,22 +12,13 @@
   }
 
   @media screen and (max-width: 1200px) {
+
     .daysBox {
       flex-wrap: wrap;
     }
+  }
+
     width: 90vw;
-    height: 130vh;
-  }
-  @media screen and (max-width: 610px) {
-    height: 150vh;
-  }
-  @media screen and (max-width: 500px) {
-    height: 190vh;
-    font-size: 14px;
-  }
-  @media screen and (max-width: 340px) {
-    height: 340vh;
-  }
 
   .daysBox {
     @include flex(row, center, flex-start, no wrap);
@@ -55,10 +45,27 @@
       }
     }
   }
+  @media screen and (max-width: 700px) {
+    height: 100%;
+    .listOfCities {
+      column-count: 3;
+      display: flow-root;
+    }
+  }
 
   .listOfCities {
     @include flex(column, space-around, flex-start, wrap);
     margin: 20px;
     height: 60%;
+    @media screen and (max-width: 700px) {
+      height: 100%;
+        column-count: 3;
+        display: flow-root;
+    }
+    @media screen and (max-width: 450px) {
+      height: 100%;
+      column-count: 2;
+      display: flow-root;
+    }
   }
 }

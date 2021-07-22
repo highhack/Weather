@@ -14,7 +14,6 @@ const SearchBox = React.memo(() => {
     const [citySearch, setCitySearch] = useState('')
 
     const onHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        debugger
         setCitySearch(event.currentTarget.value)
         dispatch(setSearchErrorAC(false))
         dispatch(setTextHelperAC(''))
